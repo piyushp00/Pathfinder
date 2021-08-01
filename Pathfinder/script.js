@@ -130,4 +130,75 @@ function Queue() {
 	   }
    }
    
+   /* ------------------------- */
+   /* ---- MOUSE FUNCTIONS ---- */
+   /* ------------------------- */
    
+   $( "td" ).mousedown(function(){
+	var index = $( "td" ).index( this );
+	var startCellIndex = (startCell[0] * (totalCols)) + startCell[1];
+	var endCellIndex = (endCell[0] * (totalCols)) + endCell[1];
+	if ( !inProgress ){
+		// Clear board if just finished
+		if ( justFinished  && !inProgress ){ 
+			clearBoard( keepWalls = true ); 
+			justFinished = false;
+		}
+		if (index == startCellIndex){
+			movingStart = true;
+			//console.log("Now moving start!");
+		} else if (index == endCellIndex){
+			movingEnd = true;
+			//console.log("Now moving end!");
+		} else {
+			createWalls = true;
+		}
+	}
+});
+
+$( "td" ).mouseup(function(){
+	createWalls = false;
+	movingStart = false;
+	movingEnd = false;
+});
+
+$( "td" ).mouseenter(function() {
+	if (!createWalls && !movingStart && !movingEnd){ return; }
+	var index = $( "td" ).index( this );
+	var startCellIndex = (startCell[0] * (totalCols)) + startCell[1];
+	var endCellIndex = (endCell[0] * (totalCols)) + endCell[1];
+	if (!inProgress){
+		if (justFinished){ 
+			clearBoard( keepWalls = true );
+			justFinished = false;
+		}
+		//console.log("Cell index = " + index);
+		if (movingStart && index != endCellIndex) {
+			moveStartOrEnd(startCellIndex, index, "start");
+		} else if (movingEnd && index != startCellIndex) {
+			moveStartOrEnd(endCellIndex, index, "end");
+		} else if (index != startCellIndex && index != endCellIndex) {
+			$(this).toggleClass("wall");
+		}
+	}
+});
+
+$( "td" ).click(function() {
+	var index = $( "td" ).index( this );
+	var startCellIndex = (startCell[0] * (totalCols)) + startCell[1];
+	var endCellIndex = (endCell[0] * (totalCols)) + endCell[1];
+	if ((inProgress == false) && !(index == startCellIndex) && !(index == endCellIndex)){
+		if ( justFinished ){ 
+			clearBoard( keepWalls = true );
+			justFinished = false;
+		}
+		$(this).toggleClass("wall");
+	}
+});
+
+$( "body" ).mouseup(function(){
+	createWalls = false;
+	movingStart = false;
+	movingEnd = false;
+});
+
