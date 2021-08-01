@@ -38,3 +38,6 @@ function generateGrid( rows, cols ) {
     return grid;
 }
 
+var myGrid = generateGrid( totalRows, totalCols);
+$( "#tableContainer" ).append( myGrid );
+
