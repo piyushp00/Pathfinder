@@ -142,3 +142,8 @@ ul {
 #source-code-btn:hover a{
 	color: white;
 }
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgb(255 255 255 / 72%);
+    margin-left: 12px;
+}
