@@ -207,7 +207,10 @@ $( "body" ).mouseup(function(){
 /* ----------------- */
 
 $( "#startBtn" ).click(function(){
-	if ( algorithm == null ){ return;}
+	if ( algorithm == null ){ 
+		alert("Please select an algorithm")	
+		return;
+	}
 	if ( inProgress ){ update("wait"); return; }
 	traverseGraph(algorithm);
 });

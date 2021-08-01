@@ -3,6 +3,21 @@ body {
     height: 100%;
 }
 
+#myNavbar{
+	background-color: black;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.navbar-brand {
+	font-size: 1.7rem !important;
+}
+
+#startBtn{
+	margin-right: 20px;
+
+}
+
 td {
     border: 1px solid #79d9ce;
     width: 20px;
@@ -61,12 +76,16 @@ ul {
 
 .start {
 	background-color: green;
-	border-color: green;
+	border-color:#79d9ce;
+	border-radius: 50%;
+	
 }
 
 .end {
-	background-color: red;
-	border-color: red;
+	background-color: rgb(255, 0, 0);
+	border-color: #79d9ce;
+	border-radius: 50%;
+	
 }
 
 #bigTableContainer {
@@ -110,4 +129,16 @@ ul {
 
 .fun-fact {
 	color: darkgreen;
+}
+
+#source-code-btn{
+	margin-left:20px;
+}
+
+#source-code-btn a{
+	text-decoration: none;
+}
+
+#source-code-btn:hover a{
+	color: white;
 }

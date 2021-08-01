@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="UTF-8">
 	<title>Pathfinder</title>
-	<link rel="stylesheet" type="text/css" href="styles/main.css">
+	<link rel="shortcut icon" type="image/png" href="images/intersection.png">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="styles/magic.min.css">
+	<link rel="stylesheet" type="text/css" href="styles/main.css">
 	<script src="https://kit.fontawesome.com/d1f3dd87b7.js" crossorigin="anonymous"></script>
 </head>
 <body>
-	<nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark" id="myNavbar">
-  		<a class="navbar-brand" href="#" id="logo">myPath</a>
+	<nav class="navbar navbar-expand-sm fixed-top navbar-dark" id="myNavbar">
+  		<a class="navbar-brand" href="#" id="logo">Pathfinder</a>
   		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     		<span class="navbar-toggler-icon"></span>
 		</button>
@@ -55,7 +57,7 @@
 
 	      	<button class="btn btn-outline-success btn-space" type="submit" id="startBtn">Start</button>
 	      	<button type="button" class="btn btn-outline-warning btn-space" type="submit" id="clearBtn">Clear Board</button>
-	      	<!-- <button type="button" class="btn btn-outline-danger disabled" type="submit" id="stopBtn">Stop</button> -->
+	      	<button type="button" class="btn btn-outline-primary" id="source-code-btn"><a href="https://github.com/piyushp00/Pathfinder" target="_blank">Source Code</a></button>
   		</div>
  	</nav>
 
@@ -102,7 +104,8 @@
 		    <div class="modal-content">
 		      <div class="modal-header">
 		      	<div class="container-fluid" id="modalTitleContainer">
-		        	<h3 class="modal-title" id="exampleModalLongTitle">Welcome to myPath!</h3>
+		        	<h3 class="modal-title" id="exampleModalLongTitle">Welcome to Pathfinder!</h3>
+					<p style="margin-top: 10px;">Built and designed by <a href="https://piyushp00.netlify.app/" target="_blank" style="text-decoration: none; color: royalblue;">Piyush Pandey</a></p>
 		        </div>
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          <span aria-hidden="true">&times;</span>
@@ -110,7 +113,7 @@
 		      </div>
 		      <div class="modal-body">
 		      	<div class="container-fluid" style="line-height: 120%">
-		      		<em style="font-size: 14px;">This is a quick tutorial that demonstrates how myPath works. If you want to skip this, then press the 'X' in the upper right-hand corner.</em>
+		      		<em style="font-size: 14px;">This is a quick tutorial that demonstrates how Pathfinder works. If you want to skip this, then press the 'X' in the upper right-hand corner.</em>
 		      	</div>
 		      	<hr>
 		        <div class="container-fluid">
@@ -124,9 +127,9 @@
 						<br>
 		        		<div class="card bg-light">
 						  <div class="card-body">
-						    <h5 class="card-title">What is myPath?</h5>
+						    <h5 class="card-title">What is Pathfinder?</h5>
 						    <p class="card-text">
-						    <em>myPath is a visualizing tool that shows how different pathfinding algorithms work. 
+						    <em>Pathfinder is a visualizing tool that shows how different pathfinding algorithms work. 
 						    <p>The program's objective is to go from the start node to the end node using a pathfinding algorithm. The program can only move horizontally or vertically, with each movement having a cost of one.</p>
 
 						    <p>Once the program is complete, the shortest path will be illuminated in yellow.
@@ -177,7 +180,7 @@
 						</div>
 						<br>
 						<div class="card border-success">
-						  <h5 class="card-header border-success">Enjoy myPath!</h5>
+						  <h5 class="card-header border-success">Enjoy Pathfinder!</h5>
 						  <div class="card-body">
 						    <p class="card-text"><em>If you want to revisit this tutorial, click the 'Tutorial' button at the end of the page.</em>
 						    <hr>
@@ -295,7 +298,7 @@
 				    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
 				      <div class="card-body">
 				        <p>
-				        	<b>How It Works:</b> GBFS tries to expand the node that is closest to the goal, on the grounds that this is likely to lead to a solution quickly. It evaluates nodes on a heuristic function, which in myPath is the Euclidean distance from the current node to the end node. 
+				        	<b>How It Works:</b> GBFS tries to expand the node that is closest to the goal, on the grounds that this is likely to lead to a solution quickly. It evaluates nodes on a heuristic function, which in Pathfinder is the Euclidean distance from the current node to the end node. 
 				        </p>
 				        <p>
 				        	<b>Analysis: </b>This is a poor algorithm for pathfinding. It is <u>weighted</u> but does <u>not</u> guarantee the shortest path. 
@@ -338,7 +341,7 @@
 				    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
 				      <div class="card-body">
 				        <p>
-				        	<b>How It Works: </b> Jump Point Search is an optimization of A* for uniform cost grids. It reduces symmertries in the search procedure by graph pruning, which eliminates certain nodes to explore based on the assumptions that can be made about the current node's neighbors (as long as certain conditions are satisfied). My implimentation only considers straight horizontal and vertical 'jumps.' In the original JPS paper, it also considers diagonal jumps, but since my program only moves horizontally and vertically, I decided to not impliment diagonal jumps. This made the algorithm non-optimal, sometimes resulting in the algorithm not being able to find the end node. Despite this, I decided to leave this algorithm in myPath to demonstrate the different types of algorithms out there. 
+				        	<b>How It Works: </b> Jump Point Search is an optimization of A* for uniform cost grids. It reduces symmertries in the search procedure by graph pruning, which eliminates certain nodes to explore based on the assumptions that can be made about the current node's neighbors (as long as certain conditions are satisfied). My implimentation only considers straight horizontal and vertical 'jumps.' In the original JPS paper, it also considers diagonal jumps, but since my program only moves horizontally and vertically, I decided to not impliment diagonal jumps. This made the algorithm non-optimal, sometimes resulting in the algorithm not being able to find the end node. Despite this, I decided to leave this algorithm in Pathfinder to demonstrate the different types of algorithms out there. 
 				        </p>
 				        <p>
 				        	<b>Analysis: </b> This is a great algorithm for pathfinding when there is an explicit maze drawn. It is <u>weighted</u>, but it does <u>not</u> guarantee the shortest path.
